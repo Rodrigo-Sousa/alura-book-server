@@ -1,0 +1,15 @@
+{
+  "name": "alura-book-server",
+  "version": "1.0.0",
+  "description": "É um projeto do curso **Node.js continue seu projeto full stack criando uma API com Express**, nesta etapa do curso, será realizada a parte do backend, para integrar com o front end que já foi desenvolvido no [Alura-Book](https://github.com/Rodrigo-Sousa/alura-book)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
