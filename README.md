@@ -17,3 +17,5 @@
 6. Utilizando o programa _Postman_, para validar os outros tipos de requisições (POST, PATCH e DELETE).
 
 7. Adicionando o _try_ e _catch_, para tratar possívies erros nas requisições.
+
+8. Manipulando arquivos JSON, para armazenar dados (com _filesystem_).
