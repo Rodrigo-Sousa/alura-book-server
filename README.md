@@ -13,3 +13,5 @@
 4. Criando o arquivo **_app.js_**, onde ele será o arquivo principal do nosso projeto.
 
 5. Instalando o _nodemon_, essa dependência irá possibilitar ver as atualizações feitas em **_hot reload_**.
+
+6. Utilizando o programa _Postman_, para validar os outros tipos de requisições (POST, PATCH e DELETE).
