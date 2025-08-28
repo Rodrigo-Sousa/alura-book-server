@@ -15,3 +15,5 @@
 5. Instalando o _nodemon_, essa dependência irá possibilitar ver as atualizações feitas em **_hot reload_**.
 
 6. Utilizando o programa _Postman_, para validar os outros tipos de requisições (POST, PATCH e DELETE).
+
+7. Adicionando o _try_ e _catch_, para tratar possívies erros nas requisições.
