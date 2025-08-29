@@ -5,10 +5,12 @@ const { Router } = require("express");
 const router = Router();
 
 // Importando o controlador referente aos livros
-const {getLivros} = require("../controllers/livros")
+const {getLivros, getLivroId} = require("../controllers/livros")
 
 // Rotas
 router.get('/', getLivros);
+// Buscando com parâmetros
+router.get('/:id', getLivroId);
 
 router.post('/', (req, res) => {
     res.send("Essa é uma requisição do tipo POST");

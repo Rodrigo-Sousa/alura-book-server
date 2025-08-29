@@ -1,5 +1,5 @@
 // Importando o controlador do services
-const {getTodosLivros} = require("../services/livros")
+const { getTodosLivros, getLivroPorId } = require("../services/livros")
 
 // Controlador responsável pela regra de negócio das requisições para livros
 function getLivros(req, res) {
@@ -13,6 +13,21 @@ function getLivros(req, res) {
     }
 }
 
+// Filtrar apenas um único livro (pelo id)
+function getLivroId(req, res) {
+    try {
+        // Recebendo o parâmetro vindo da requisição
+        const idReq = req.params.id;
+        const livro = getLivroPorId(idReq);
+        res.send(livro);
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+
+}
+
 module.exports = {
-    getLivros
+    getLivros,
+    getLivroId
 }
