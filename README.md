@@ -19,3 +19,5 @@
 7. Adicionando o _try_ e _catch_, para tratar possívies erros nas requisições.
 
 8. Manipulando arquivos JSON, para armazenar dados (com _filesystem_).
+
+9. Criando o diretório de _services_ responsável por gerenciar as conexões com ferramentas externas e serviços externos.
