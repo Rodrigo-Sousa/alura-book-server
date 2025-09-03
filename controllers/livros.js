@@ -1,5 +1,5 @@
 // Importando o controlador do services
-const { getTodosLivros, getLivroPorId } = require("../services/livros")
+const { getTodosLivros, getLivroPorId, insereLivro } = require("../services/livros")
 
 // Controlador responsável pela regra de negócio das requisições para livros
 function getLivros(req, res) {
@@ -27,7 +27,25 @@ function getLivroId(req, res) {
 
 }
 
+// Incluindo um livro, pelo body
+function postLivro(req, res){
+    // Tratando possíveis erros
+    try{
+        // Recebendo o arquivo do body
+        const livroNovo = req.body;
+        // Função responsável por criar o objeto
+        insereLivro(livroNovo);
+        res.status(201);
+        res.send('Livro cadastrado com sucesso!');
+    }catch(error){
+        res.status(500);
+        res.send(error.message);
+    }
+
+}
+
 module.exports = {
     getLivros,
-    getLivroId
+    getLivroId,
+    postLivro
 }

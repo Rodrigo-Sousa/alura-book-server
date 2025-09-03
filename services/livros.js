@@ -17,7 +17,18 @@ function getLivroPorId(id) {
         livro => livro.id === idConvertido)[0];
     return livroFiltrado;
 }
+
+// Função para inserir o livro novo
+function insereLivro(livroNovo){
+    // Recebendo os livros do arquivo data/livros.json
+    const livros = JSON.parse(fs.readFileSync("./data/livros.json"));
+    // Utilizando o Spreding, para cirar uma nova lista, contendo o novo livro adicionado
+    const novaListaDeLivros = [...livros, livroNovo];
+    // Sobrescrevendo o arquivo livros.json. Mantendo o arquivo .json formatado, após inclusão do novo item. Informando que nenhuma substituição de propriedades deve ser feita. E com a opção de qunatas identações utilizar.
+    fs.writeFileSync("./data/livros.json", JSON.stringify(novaListaDeLivros, null, 2));
+}
 module.exports = {
     getTodosLivros,
-    getLivroPorId
+    getLivroPorId,
+    insereLivro
 }

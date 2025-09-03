@@ -5,6 +5,8 @@ const rotaLivro = require("./routers/livros");
 
 // Criando uma constante app, sendo ela a nossa aplicação Express
 const app = express();
+// Recebendo arquvios .JSON
+app.use(express.json());
 
 // Utilizando as rotas que importamos no rotaLivro
 app.use('/livros', rotaLivro);
