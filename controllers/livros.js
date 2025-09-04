@@ -1,5 +1,5 @@
 // Importando o controlador do services
-const { getTodosLivros, getLivroPorId, insereLivro } = require("../services/livros")
+const { getTodosLivros, getLivroPorId, insereLivro, modificaLivro } = require("../services/livros")
 
 // Controlador responsável pela regra de negócio das requisições para livros
 function getLivros(req, res) {
@@ -44,8 +44,25 @@ function postLivro(req, res){
 
 }
 
+// Função que irá controlar a mudança dos dados do item passado
+function patchLivro(req, res){
+    // Tratando possível erro
+    try {
+        // recebendo o id e o corpo da requisição
+        const id = req.params.id;
+        const body = req.body;
+
+        modificaLivro(id, body);
+        res.send("Item modificado com sucesso!");
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}
+
 module.exports = {
     getLivros,
     getLivroId,
-    postLivro
+    postLivro,
+    patchLivro
 }

@@ -5,7 +5,7 @@ const { Router } = require("express");
 const router = Router();
 
 // Importando o controlador referente aos livros
-const {getLivros, getLivroId, postLivro} = require("../controllers/livros")
+const {getLivros, getLivroId, postLivro, patchLivro} = require("../controllers/livros")
 
 // Rotas
 router.get('/', getLivros);
@@ -14,9 +14,7 @@ router.get('/:id', getLivroId);
 
 router.post('/', postLivro);
 
-router.patch('/', (req, res) => {
-    res.send("Essa é uma requisição do tipo PATCH");
-});
+router.patch('/:id', patchLivro);
 
 router.delete('/', (req, res) => {
     res.send("Essa é uma requisição do tipo DELETE");
