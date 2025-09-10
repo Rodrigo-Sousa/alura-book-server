@@ -1,5 +1,5 @@
 // Importando o controlador do services
-const { getTodosLivros, getLivroPorId, insereLivro, modificaLivro } = require("../services/livros")
+const { getTodosLivros, getLivroPorId, insereLivro, modificaLivro, excluiLivro } = require("../services/livros")
 
 // Controlador responsável pela regra de negócio das requisições para livros
 function getLivros(req, res) {
@@ -60,9 +60,22 @@ function patchLivro(req, res){
     }
 }
 
+// Excluindo um item do arquivo .json, ao passar a rota delete
+function deleteLivro(req, res){
+    try{
+        const id = req.params.id;
+        excluiLivro(id);
+        res.send("Item removido com êxito!");
+    }catch(error){
+        res.status(200);
+        res.send(error.message);
+    }
+}
+
 module.exports = {
     getLivros,
     getLivroId,
     postLivro,
-    patchLivro
+    patchLivro,
+    deleteLivro
 }

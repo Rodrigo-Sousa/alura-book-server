@@ -1,10 +1,18 @@
 [
-    {
-        "id": 1,
-        "nome": "Liderança em Design"
-    },
-    {
-        "id": 2,
-        "nome": "JavaScript Assertivo"
-    }
+  {
+    "id": 1,
+    "nome": "Liderança em Design"
+  },
+  {
+    "id": 2,
+    "nome": "JavaScript Assertivo"
+  },
+  {
+    "id": 4,
+    "nome": "Novo livro 2"
+  },
+  {
+    "id": 6,
+    "nome": "Novo livro 3"
+  }
 ]

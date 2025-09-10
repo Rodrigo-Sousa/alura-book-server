@@ -5,7 +5,7 @@ const { Router } = require("express");
 const router = Router();
 
 // Importando o controlador referente aos livros
-const {getLivros, getLivroId, postLivro, patchLivro} = require("../controllers/livros")
+const {getLivros, getLivroId, postLivro, patchLivro, deleteLivro} = require("../controllers/livros")
 
 // Rotas
 router.get('/', getLivros);
@@ -16,9 +16,7 @@ router.post('/', postLivro);
 
 router.patch('/:id', patchLivro);
 
-router.delete('/', (req, res) => {
-    res.send("Essa é uma requisição do tipo DELETE");
-});
+router.delete('/:id', deleteLivro);
 
 // Exportando as rotas, para poder utilizar em outras partes do código
 module.exports = router;

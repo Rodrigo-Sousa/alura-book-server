@@ -35,10 +35,10 @@ function modificaLivro(id, modificacoes) {
     // Ler os livros do arquivo JSON
     let livrosAtuais = JSON.parse(fs.readFileSync("./data/livros.json"));
     // Escolhendo o índice do objeto.
-    let indiceModificado = livrosAtuais.findIndex( livro => livro.id === idConvertido);
+    let indiceModificado = livrosAtuais.findIndex(livro => livro.id === idConvertido);
 
     // Conteúdo modificado recebendo o conteúdo do .json atual e com as modificações que vinheram do patch
-    const conteudoMudado = {...livrosAtuais[indiceModificado], ...modificacoes};
+    const conteudoMudado = { ...livrosAtuais[indiceModificado], ...modificacoes };
 
     livrosAtuais[indiceModificado] = conteudoMudado;
 
@@ -47,9 +47,22 @@ function modificaLivro(id, modificacoes) {
 
 }
 
+function excluiLivro(id) {
+    const idRemovido = parseInt(id);
+    // Ler os livros do arquivo JSON
+    const livrosAtuais = JSON.parse(fs.readFileSync("./data/livros.json"));
+
+    // Filtrando o livro a ser deletado
+    const livroFiltrado = livrosAtuais.filter(livro => livro.id!==idRemovido);
+
+    fs.writeFileSync("./data/livros.json", JSON.stringify(livroFiltrado, null, 2));
+
+}
+
 module.exports = {
     getTodosLivros,
     getLivroPorId,
     insereLivro,
-    modificaLivro
+    modificaLivro,
+    excluiLivro
 }
