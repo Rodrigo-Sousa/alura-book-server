@@ -18,8 +18,15 @@ function getLivroId(req, res) {
     try {
         // Recebendo o parâmetro vindo da requisição
         const idReq = req.params.id;
-        const livro = getLivroPorId(idReq);
-        res.send(livro);
+        // Verificando se o id é um número
+        if (idReq && Number(id)) {
+            const livro = getLivroPorId(idReq);
+            res.send(livro);
+        } else {
+            res.status(422);
+            res.send("Id inválido");
+        }
+
     } catch (error) {
         res.status(500);
         res.send(error.message);
@@ -28,16 +35,16 @@ function getLivroId(req, res) {
 }
 
 // Incluindo um livro, pelo body
-function postLivro(req, res){
+function postLivro(req, res) {
     // Tratando possíveis erros
-    try{
+    try {
         // Recebendo o arquivo do body
         const livroNovo = req.body;
         // Função responsável por criar o objeto
         insereLivro(livroNovo);
         res.status(201);
         res.send('Livro cadastrado com sucesso!');
-    }catch(error){
+    } catch (error) {
         res.status(500);
         res.send(error.message);
     }
@@ -45,15 +52,22 @@ function postLivro(req, res){
 }
 
 // Função que irá controlar a mudança dos dados do item passado
-function patchLivro(req, res){
+function patchLivro(req, res) {
     // Tratando possível erro
     try {
         // recebendo o id e o corpo da requisição
         const id = req.params.id;
-        const body = req.body;
+        // Verificando o id
+        if (id && Number(id)) {
+            const body = req.body;
 
-        modificaLivro(id, body);
-        res.send("Item modificado com sucesso!");
+            modificaLivro(id, body);
+            res.send("Item modificado com sucesso!");
+        } else {
+            res.status(422);
+            res.send("Id inválido");
+        }
+
     } catch (error) {
         res.status(500);
         res.send(error.message);
@@ -61,12 +75,20 @@ function patchLivro(req, res){
 }
 
 // Excluindo um item do arquivo .json, ao passar a rota delete
-function deleteLivro(req, res){
-    try{
+function deleteLivro(req, res) {
+    try {
         const id = req.params.id;
-        excluiLivro(id);
-        res.send("Item removido com êxito!");
-    }catch(error){
+        // Verificando id
+        if (id && Number(id)) {
+            excluiLivro(id);
+            res.send("Item removido com êxito!");
+        }else {
+            // Entidade não processada
+            res.status(422);
+            res.send("Id inválido");
+        }
+
+    } catch (error) {
         res.status(200);
         res.send(error.message);
     }

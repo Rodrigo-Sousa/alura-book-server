@@ -23,3 +23,5 @@
 9. Criando o diretório de _services_ responsável por gerenciar as conexões com ferramentas externas e serviços externos.
 
 10. Parâmetro na variável.
+
+11. Verificando se os id's passado por parâmetros são números.
