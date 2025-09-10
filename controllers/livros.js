@@ -40,10 +40,17 @@ function postLivro(req, res) {
     try {
         // Recebendo o arquivo do body
         const livroNovo = req.body;
-        // Função responsável por criar o objeto
-        insereLivro(livroNovo);
-        res.status(201);
-        res.send('Livro cadastrado com sucesso!');
+        // Verificando se recebemos os dados "obrigatórios" para podermos cadastar
+        if (req.body.id && req.body.nome) {
+            // Função responsável por criar o objeto
+            insereLivro(livroNovo);
+            res.status(201);
+            res.send('Livro cadastrado com sucesso!');
+        }else{
+            res.status(422);
+            res.send("O campo id e nome são obrigatórios");
+        }
+
     } catch (error) {
         res.status(500);
         res.send(error.message);
@@ -82,7 +89,7 @@ function deleteLivro(req, res) {
         if (id && Number(id)) {
             excluiLivro(id);
             res.send("Item removido com êxito!");
-        }else {
+        } else {
             // Entidade não processada
             res.status(422);
             res.send("Id inválido");
