@@ -6,12 +6,13 @@ const rotaLivro = require("./routers/livros");
 const swaggerUi = require('swagger-ui-express');
 // Importando o arquivo swaggerDocument
 const swaggerDocument = require('./docs/docs');
+// Impotando o pacote CORS
 const cors = require("cors");
 
 // Criando uma constante app, sendo ela a nossa aplicação Express
 const app = express();
 
-// Instalando o CORS. Como é para fins didáticos estes projeto, a origem pode ser qualquer uma
+// Utilizando a função do CORS. Como é para fins didáticos estes projeto, a origem pode ser qualquer uma
 app.use(cors({origin: "*"}));
 // Recebendo arquvios .JSON
 app.use(express.json());
