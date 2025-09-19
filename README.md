@@ -34,6 +34,10 @@
 
 12. Adicionado a documentação por meio do _swagger_, explicando cada rota.
 
+13. Utilizado o CROS.
+
+14. Criando o arquivo JSON de livros favoritos.
+
 ### Abrir e rodar o projeto
 
 - Baixar o repositório.
