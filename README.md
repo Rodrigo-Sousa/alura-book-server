@@ -38,6 +38,12 @@
 
 14. Criando o arquivo JSON de livros favoritos.
 
+15. Criação do services para manipular os livrso favoritos (para inserir e deletar livors da lista de favoritos).
+
+16. Criação dos controles para a lista de favoritos.
+
+17. Criação das rotas (livros favoritos).
+
 ### Abrir e rodar o projeto
 
 - Baixar o repositório.

@@ -2,6 +2,8 @@
 const express = require ("express");
 // Importando o módulo router
 const rotaLivro = require("./routers/livros");
+// Rota de livros favoritos
+const routerFavoritos = require("./routers/favoritos");
 // Importando a biblioteca swagger
 const swaggerUi = require('swagger-ui-express');
 // Importando o arquivo swaggerDocument
@@ -19,6 +21,9 @@ app.use(express.json());
 
 // Utilizando as rotas que importamos no rotaLivro
 app.use('/livros', rotaLivro);
+
+// Rota para manipulação das rotas de livros favoritos.
+app.use('/favoritos', routerFavoritos)
 
 // Informando a rota que iremos utilizar para exibir a documentação
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
